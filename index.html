@@ -1,0 +1,463 @@
+DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DanielExpertFreelancer — Web • Design • Marketing • Tech</title>
+  <meta name="description" content="High‑converting websites, branding, SEO and tech by DanielExpertFreelancer. Live demos, transparent pricing, and fast communication.">
+  <link rel="canonical" href="https://example.com/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='20' width='100' height='100' fill='%2310b981'/><path d='M22 75V25h26c16 0 27 11 27 25s-11 25-27 25H22zm26-12c8 0 14-6 14-13s-6-13-14-13H34v26h14z' fill='%2306283b'/></svg>">
+  <meta property="og:title" content="DanielExpertFreelancer — Portfolio & Services" />
+  <meta property="og:description" content="Websites, brands & systems that convert. See demos, pricing and contact options." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=60&auto=format" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===== THEME TOKENS ===== */
+    :root{
+      --bg:#ffffff; --text:#0f172a; --muted:#64748b;
+      --brand:#0ea5e9; --brand2:#10b981; --accent:#f59e0b;
+      --card:#d7e9f4; --line:#e2e8f0; --ring:rgba(14,165,233,.35);
+      --shadow:0 10px 30px rgba(2,6,23,.08);
+      --radius:16px; --radius-lg:22px;
+    }
+    @media(prefers-color-scheme:dark,white,nevilblue){
+      :root{ --bg:#0b0f1a; --text:#e5e7eb; --muted:#9aa4b2; --card:#0f1626; --line:#1f2a44; --shadow:0 12px 36px rgba(0,0,0,.45); }
+    }
+    [data-theme="dark"]{ --bg:#0b0f1a; --text:#e5e7eb; --muted:#9aa4b2; --card:#0f1626; --line:#1f2a44; --shadow:0 12px 36px rgba(0,0,0,.45); }
+
+    /* ===== BASE ===== */
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+    img{max-width:100%;display:block}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    ::selection{background:rgba(16,185,129,.35)}
+    .container{max-width:1140px;margin:0 auto;padding:0 16px}
+    .eyebrow{font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+    /* ===== NAV ===== */
+    header{position:sticky;top:0;z-index:60;background:color-mix(in oklab, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;gap:14px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-name{font-weight:800;letter-spacing:.2px}
+    .tag{font-size:.85rem;color:var(--muted)}
+    .spacer{flex:1}
+    .nav a.link{padding:8px 12px;border-radius:10px;color:var(--text)}
+    .nav a.link:hover{background:color-mix(in oklab, var(--card) 70%, transparent)}
+    .hire{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--brand2),var(--brand));color:white;border:0;font-weight:800;box-shadow:0 8px 18px rgba(14,165,233,.25)}
+    .hire:focus{outline:3px solid var(--ring)}
+    .toggle,.menu-btn{border:1px solid var(--line);background:var(--bg);color:var(--text);padding:8px 12px;border-radius:10px;cursor:pointer}
+    .menu-btn{display:none}
+    @media(max-width:780px){
+      .desk-links{display:none}
+      .menu-btn{display:inline-flex;align-items:center;gap:8px}
+      .desk-links.open{display:flex;position:absolute;top:58px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:10px;gap:8px;justify-content:center}
+    }
+
+    /* ===== LAYOUT ===== */
+    section{padding:72px 0}
+    .title{font-size:2.4rem;margin:0 0 8px}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .grid{display:grid;gap:20px}
+    @media(min-width:760px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-4{grid-template-columns:repeat(4,1fr)}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-weight:600}
+
+    /* ===== HERO ===== */
+    .hero{display:grid;gap:24px;align-items:center;padding-top:24px}
+    @media(min-width:980px){.hero{grid-template-columns:1.05fr .95fr}}
+    .title .grad{background:linear-gradient(120deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;border:1px solid var(--line);font-weight:700;color:var(--text);background:var(--bg)}
+    .btn.primary{background:linear-gradient(135deg,var(--brand2),var(--brand));color:white;border-color:transparent}
+
+    /* ===== TRUST BAR ===== */
+    .trust{display:grid;grid-template-columns:repeat(5,minmax(90px,1fr));gap:20px;align-items:center;opacity:.75}
+    .trust img{filter:grayscale(1);height:26px;margin:auto}
+
+    /* ===== SERVICES ===== */
+    .price{color:var(--brand2);font-weight:800}
+    .service{position:relative;overflow:hidden}
+    .service:after{content:"";position:absolute;inset:0;background:radial-gradient(600px 100px at 0% 0%, rgba(14,165,233,.06), transparent 65%)}
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio .thumb{width:100%;height:220px;object-fit:cover;border-radius:14px;border:1px solid var(--line)}
+    .portfolio h3{margin:12px 0 6px;font-size:1.05rem}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .card.linked{transition:transform .25s ease, box-shadow .25s ease}
+    .card.linked:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(2,6,23,.14)}
+
+    /* ===== WHY ===== */
+    .why ul{margin:8px 0 0 18px;line-height:1.65;color:var(--muted)}
+
+    /* ===== TESTIMONIALS ===== */
+    .slider{position:relative}
+    .slides{display:flex;gap:20px;overflow:hidden;scroll-behavior:smooth}
+    .slide{min-width:100%}
+    .quote{font-style:italic}
+    .who{margin-top:8px;color:var(--muted);font-size:.95rem}
+    .dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--line)}
+    .dot.active{background:var(--brand)}
+
+    /* ===== FAQ ===== */
+    details{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--card)}
+    summary{cursor:pointer;font-weight:700}
+
+    /* ===== CONTACT ===== */
+    .field{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+    input,textarea{border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;background:var(--bg);color:var(--text)}
+    input:focus,textarea:focus{outline:3px solid var(--ring)}
+    textarea{min-height:120px;resize:vertical}
+    .success,.error{display:none;margin-top:10px;padding:10px;border-radius:10px}
+    .success{background:color-mix(in oklab, var(--brand) 20%, white);color:#055160;border:1px solid #a5f3fc}
+    .error{background:color-mix(in oklab, #f97316 10%, white);color:#7c2d12;border:1px solid #fed7aa}
+
+    /* ===== REVEAL ===== */
+    .reveal{opacity:0;transform:translateY(14px);transition:.6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* ===== FOOTER ===== */
+    footer{background:var(--card);border-top:1px solid var(--line)}
+    footer .inner{padding:36px 0;text-align:center;color:var(--muted)}
+  </style>
+
+  <!-- Schema: Organization -->
+  <script type="application/ld+json">{
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"DanielExpertFreelancer",
+    "url":"https://example.com/",
+    "logo":"https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=256&q=60&auto=format",
+    "sameAs":["https://wa.me/2349070686452","https://t.me/DanielExpertt"],
+    "areaServed":"Worldwide",
+    "description":"Web development, branding, SEO and technical implementation that convert visitors into buyers.",
+    "priceRange":"$40 - $250+"
+  }</script>
+</head>
+<body>
+  <!-- ===== NAV ===== -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <svg width="38" height="38" viewBox="0 0 100 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient></defs>
+          <rect x="10" y="10" width="80" height="80" rx="20" fill="url(#g)"/>
+          <path d="M28 72V28h22c13 0 22 9 22 22s-9 22-22 22H28zm22-10c7 0 12-5 12-12s-5-12-12-12h-12v24h12z" fill="#06283b"/>
+          <path d="M52 36h20v8H52v8h16v8H52V36z" fill="#06283b" opacity=".9"/>
+        </svg>
+        <div>
+          <div class="brand-name">DanielExpertFreelancer</div>
+          <div class="tag">Web • Design • Marketing • Tech</div>
+        </div>
+      </a>
+      <div class="spacer"></div>
+      <nav class="desk-links" aria-label="Primary">
+        <a class="link" href="#services">Services</a>
+        <a class="link" href="#portfolio">Portfolio</a>
+        <a class="link" href="#why">Why Me</a>
+        <a class="link" href="#testimonials">Testimonials</a>
+        <a class="link" href="#faq">FAQ</a>
+        <a class="link" href="#contact">Contact</a>
+      </nav>
+      <button class="toggle" id="themeToggle" aria-label="Toggle dark mode">Dark</button>
+      <a class="hire" href="https://wa.me/2349070686452" target="_blank" rel="noopener">Hire Me</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">☰ Menu</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===== HERO ===== -->
+    <section class="container hero" aria-label="Hero">
+      <div class="card reveal">
+        <span class="eyebrow">Conversion‑focused delivery</span>
+        <h1 class="title">Websites, brands & systems that <span class="grad">convert</span>.</h1>
+        <p class="subtitle">I build clean, fast sites, strong brand identities and marketing systems that turn visitors into buyers — with clear pricing and deadlines.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://wa.me/2349070686452" target="_blank" rel="noopener" aria-label="Start on WhatsApp">Start on WhatsApp</a>
+          <a class="btn" href="#portfolio">See My Work ↓</a>
+        </div>
+        <div class="trust" style="margin-top:22px">
+          <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=400&q=60&auto=format" alt="Client logo 1" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&q=60&auto=format" alt="Client logo 2" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=400&q=60&auto=format" alt="Client logo 3" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?w=400&q=60&auto=format" alt="Client logo 4" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1529336953121-ad320f82fa8b?w=400&q=60&auto=format" alt="Client logo 5" loading="lazy">
+        </div>
+      </div>
+      <div class="card reveal" aria-hidden="true">
+        <svg viewBox="0 0 1200 700" role="img" aria-label="Hero mockup">
+          <defs><linearGradient id="hero" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs>
+          <rect width="1200" height="700" rx="24" fill="url(#hero)"/>
+          <g fill="#ffffff" opacity=".85">
+            <rect x="120" y="120" width="520" height="24" rx="8"/>
+            <rect x="120" y="170" width="380" height="16" rx="8"/>
+            <rect x="120" y="220" width="420" height="16" rx="8"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="container" aria-label="Services and Prices">
+      <h2 class="reveal" style="margin:0 0 18px">Services & Pricing</h2>
+      <div class="grid cols-3">
+        <div class="card service reveal"><h3>Website Development</h3><p class="subtitle">Landing pages, business sites, blogs.</p><p class="price">From $150</p></div>
+        <div class="card service reveal"><h3>App/MVP Prototypes</h3><p class="subtitle">Mobile‑first prototypes & dashboards.</p><p class="price">From $250</p></div>
+        <div class="card service reveal"><h3>Branding & Logo Design</h3><p class="subtitle">Logo + brand kit + social templates.</p><p class="price">From $40</p></div>
+        <div class="card service reveal"><h3>Digital Marketing</h3><p class="subtitle">SEO, content, email & social.</p><p class="price">From $100</p></div>
+        <div class="card service reveal"><h3>SEO & Traffic Growth</h3><p class="subtitle">On‑page SEO, speed & analytics.</p><p class="price">From $70</p></div>
+        <div class="card service reveal"><h3>Content Writing</h3><p class="subtitle">Landing copy, blogs, product pages.</p><p class="price">From $50</p></div>
+        <div class="card service reveal"><h3>Video Editing</h3><p class="subtitle">Ads, reels, explainers, intros.</p><p class="price">From $60</p></div>
+        <div class="card service reveal"><h3>Programming & Tech</h3><p class="subtitle">Custom code, API, automations, fixes.</p><p class="price">From $100</p></div>
+        <div class="card service reveal"><h3>Maintenance</h3><p class="subtitle">Updates, backups, quick support.</p><p class="price">From $30/mo</p></div>
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="container portfolio" aria-label="Portfolio — Live Demos">
+      <h2 class="reveal" style="margin:0 0 18px">Portfolio — Live Demos</h2>
+      <div class="grid cols-3">
+        <a class="card linked reveal" href="https://startbootstrap.github.io/startbootstrap-landing-page/" target="_blank" rel="noopener">
+          <img class="thumb" alt="Business Landing" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>Business Landing Page</h3>
+          <p class="subtitle">Clean hero, features, CTA, testimonials.</p>
+        </a>
+        <a class="card linked reveal" href="https://webflow.com/made-in-webflow/website/Ecommerce-Fashion-Store" target="_blank" rel="noopener">
+          <img class="thumb" alt="Fashion Ecommerce" src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>Fashion E‑commerce (sample)</h3>
+          <p class="subtitle">Product grid, details, cart flow.</p>
+        </a>
+        <a class="card linked reveal" href="https://tabler.io/demo" target="_blank" rel="noopener">
+          <img class="thumb" alt="Admin Dashboard Analytics" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>Analytics Dashboard (sample)</h3>
+          <p class="subtitle">Cards, charts, tables for KPIs.</p>
+        </a>
+        <a class="card linked reveal" href="https://startbootstrap.github.io/startbootstrap-creative/" target="_blank" rel="noopener">
+          <img class="thumb" alt="Creative Agency" src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>Creative Agency Portfolio</h3>
+          <p class="subtitle">Scroll effects & bold sections.</p>
+        </a>
+        <a class="card linked reveal" href="https://startbootstrap.github.io/startbootstrap-clean-blog/" target="_blank" rel="noopener">
+          <img class="thumb" alt="Clean Blog Template" src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>Clean Blog Template</h3>
+          <p class="subtitle">Readable typography & categories.</p>
+        </a>
+        <a class="card linked reveal" href="https://startbootstrap.github.io/startbootstrap-grayscale/" target="_blank" rel="noopener">
+          <img class="thumb" alt="Grayscale App Promo" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>App Promo Landing</h3>
+          <p class="subtitle">Dark hero, device mockups, CTA.</p>
+        </a>
+        <a class="card linked reveal" href="https://startbootstrap.github.io/startbootstrap-resume/" target="_blank" rel="noopener">
+          <img class="thumb" alt="Resume Portfolio" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>Personal Resume/Portfolio</h3>
+          <p class="subtitle">CV, projects, contact sections.</p>
+        </a>
+        <a class="card linked reveal" href="https://startbootstrap.github.io/startbootstrap-business-frontpage/" target="_blank" rel="noopener">
+          <img class="thumb" alt="Business Frontpage" src="https://images.unsplash.com/photo-1499914485622-a88fac536970?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>Business Front Page</h3>
+          <p class="subtitle">Services, features, CTA, footer.</p>
+        </a>
+        <a class="card linked reveal" href="#contact">
+          <img class="thumb" alt="Custom Project" src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1200&q=60" loading="lazy">
+          <h3>Custom Build</h3>
+          <p class="subtitle">Tell me your goal — I’ll design the fastest path to ROI.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== WHY: Problems & Solutions ===== -->
+    <section id="why" class="container" aria-label="Why Choose Me">
+      <h2 class="reveal" style="margin:0 0 18px">Why Choose Me — Problems I Solve</h2>
+      <div class="grid cols-3">
+        <div class="card reveal">
+          <h3>Your Problems</h3>
+          <ul class="why">
+            <li>Outdated, slow website that leaks conversions.</li>
+            <li>No clear brand identity or trust signals.</li>
+            <li>Low traffic, low sales, no tracking.</li>
+            <li>Tech issues waste time & money.</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>My Solutions</h3>
+          <ul class="why">
+            <li>Modern, mobile‑first builds with 90+ Lighthouse scores.</li>
+            <li>Clean logos, brand kits & persuasive copy.</li>
+            <li>SEO + content + analytics to grow conversions.</li>
+            <li>Automations & integrations that save hours.</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>What You Get</h3>
+          <ul class="why">
+            <li>Clear pricing & deadlines.</li>
+            <li>Friendly communication.</li>
+            <li>Support after delivery.</li>
+            <li>Results‑focused approach.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS (Slider) ===== -->
+    <section id="testimonials" class="container" aria-label="Testimonials">
+      <h2 class="reveal" style="margin:0 0 18px">Testimonials</h2>
+      <div class="slider card reveal">
+        <div class="slides" id="slides">
+          <div class="slide">
+            <p class="quote">“Daniel rebuilt our site fast and conversions improved in the first week.”</p>
+            <div class="who">— Sarah, Boutique Owner</div>
+          </div>
+          <div class="slide">
+            <p class="quote">“Clean logo, strong landing page, and seamless handover. Highly recommend.”</p>
+            <div class="who">— Ahmed, Startup Founder</div>
+          </div>
+          <div class="slide">
+            <p class="quote">“He fixed our tracking and campaign setup. Now we see what actually works.”</p>
+            <div class="who">— Beauty Brand Team</div>
+          </div>
+        </div>
+        <div class="dots" id="dots" aria-label="Slide indicators" role="tablist"></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="container" aria-label="Frequently Asked Questions">
+      <h2 class="reveal" style="margin:0 0 18px">FAQ</h2>
+      <div class="grid cols-2">
+        <details class="reveal"><summary>How fast can you deliver?</summary><p class="subtitle">Simple landing pages in 3–7 days. Larger sites/MVPs 2–4 weeks depending on scope.</p></details>
+        <details class="reveal"><summary>What tools/stack do you use?</summary><p class="subtitle">Modern HTML/CSS/JS, Tailwind or vanilla CSS, React for apps, and best‑practice SEO/analytics.</p></details>
+        <details class="reveal"><summary>Do you work with existing brands?</summary><p class="subtitle">Yes — I can refresh your brand, improve performance and integrate better tracking.</p></details>
+        <details class="reveal"><summary>Payment terms?</summary><p class="subtitle">50% to start, 50% on approval. Milestones available for larger builds.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="container" aria-label="Contact">
+      <h2 class="reveal" style="margin:0 0 18px">Contact Me</h2>
+      <div class="grid cols-2">
+        <div class="card reveal">
+          <h3>Quick Links</h3>
+          <p>WhatsApp: <a href="https://wa.me/2349070686452" target="_blank" rel="noopener">+234 907 068 6452</a></p>
+          <p>Telegram: <a href="https://t.me/DanielExpertt" target="_blank" rel="noopener">@DanielExpertt</a></p>
+          <p>Email: <a href="mailto:DanielExpertfreelancer@gmail.com">DanielExpertfreelancer@gmail.com</a></p>
+          <p class="subtitle">Tell me your goals. I’ll reply with a simple plan & price.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Send a Message</h3>
+          <!-- Replace YOUR_FORM_ID after Formspree signup -->
+          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="_replyto" type="email" placeholder="your@email.com" required></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Project details, timeline, budget…" required></textarea></div>
+            <button class="hire" type="submit">Send Message</button>
+            <div class="success" id="okMsg" role="status">Message sent. I’ll reply soon!</div>
+            <div class="error" id="errMsg" role="alert">Couldn’t send. Opening your email app…</div>
+          </form>
+          <p class="subtitle" style="margin-top:10px">No backend needed — powered by Formspree.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container inner">
+      © <span id="year"></span> DanielExpertFreelancer • Built with HTML, CSS & JS • Images via Unsplash (royalty‑free)
+    </div>
+  </footer>
+
+  <script>
+    // ===== Helpers =====
+    const $ = (s,root=document) => root.querySelector(s);
+    const $$ = (s,root=document) => [...root.querySelectorAll(s)];
+
+    // ===== Mobile menu toggle =====
+    const menuBtn = $('#menuBtn');
+    const deskLinks = $('.desk-links');
+    if(menuBtn){
+      menuBtn.addEventListener('click', () => {
+        deskLinks.classList.toggle('open');
+        const open = deskLinks.classList.contains('open');
+        menuBtn.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    // ===== Smooth scroll =====
+    $$('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){ e.preventDefault(); $(id)?.scrollIntoView({behavior:'smooth'}); deskLinks?.classList.remove('open'); }
+      });
+    });
+
+    // ===== Reveal on scroll =====
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('visible'); io.unobserve(en.target); }});
+    },{threshold:.14});
+    $$('.reveal').forEach(el=>io.observe(el));
+
+    // ===== Theme toggle (persist preference) =====
+    const root = document.documentElement;
+    const toggle = $('#themeToggle');
+    const saved = localStorage.getItem('theme');
+    if(saved){ root.setAttribute('data-theme',saved); toggle.textContent = saved==='dark' ? 'Light' : 'Dark'; }
+    toggle.addEventListener('click',()=>{
+      const next = root.getAttribute('data-theme')==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      localStorage.setItem('theme',next);
+      toggle.textContent = next==='dark' ? 'Light' : 'Dark';
+    });
+
+    // ===== Testimonial slider =====
+    const slidesEl = $('#slides');
+    const dotsEl = $('#dots');
+    const slides = $$('.slide', slidesEl);
+    let i = 0; // current index
+    slides.forEach((_,idx)=>{
+      const d=document.createElement('button');
+      d.className='dot'; d.setAttribute('aria-label',`Go to slide ${idx+1}`);
+      d.addEventListener('click',()=>{ i=idx; update(); });
+      dotsEl.appendChild(d);
+    });
+    function update(){
+      slidesEl.scrollTo({left: slidesEl.clientWidth * i, behavior:'smooth'});
+      $$('.dot',dotsEl).forEach((d,idx)=>d.classList.toggle('active', idx===i));
+    }
+    function next(){ i = (i+1) % slides.length; update(); }
+    let timer = setInterval(next, 4500);
+    slidesEl.addEventListener('pointerdown',()=>clearInterval(timer));
+    window.addEventListener('resize',update);
+    update();
+
+    // ===== Contact form: try Formspree → fallback to mailto =====
+    const form = $('#contactForm');
+    const ok = $('#okMsg');
+    const err = $('#errMsg');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      ok.style.display='none'; err.style.display='none';
+      const data = new FormData(form);
+      try{
+        const res = await fetch(form.action,{ method:'POST', body:data, headers:{'Accept':'application/json'} });
+        if(res.ok){ ok.style.display='block'; form.reset(); }
+        else throw new Error('Formspree error');
+      }catch(_){
+        err.style.display='allow';
+        const subject = encodeURIComponent('New project inquiry');
+        const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('_replyto')}\n\nMessage:\n${data.get('message')}`);
+        window.location.href = `mailto:DanielExpertfreelancer@gmail.com?subject=${subject}&body=${body}`;
+      }
+    });
+
+    // ===== Dynamic year =====
+    $('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
